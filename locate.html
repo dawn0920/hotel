@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>호텔 위치</title>
+    <style>
+        header {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        div.main-container {
+            background-image: url('https://contents.hiltonhotels.jp/ko/b/top_main_20220620225544_lg_pc.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            width: 80%;
+        }
+
+        #map {
+            height: 400px;
+            width: 80%;
+            margin: 20px 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            margin-top: 100px;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>OOL Hotel</h1>
+        <nav>
+            <a href="#">로그인</a>
+            <a href="#">회원가입</a>
+            <a href="#">언어설정</a>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <h2>호텔 위치 소개</h2>
+    </div>
+
+    <div id="map"></div>
+
+    <div>
+        <p> 서울특별시 서대문구 가좌로 134(서울특별시 서대문구 홍은 2동 356-1) 대표전화 (02)300-1000,1114 FAX (02)304-4832</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 OOL Hotel. All rights reserved.</p>
+    </footer>
+
+    <!-- Google Maps API Script -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+    <script>
+        function initMap() {
+            // OOL Hotel의 위도, 경도를 설정
+            var oolHotelLocation = { lat: 37.7749, lng: -122.4194 };
+
+            // Google Map 생성 및 지도를 #map 요소에 추가
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: oolHotelLocation
+            });
+
+            // 지도에 마커 추가
+            var marker = new google.maps.Marker({
+                position: oolHotelLocation,
+                map: map,
+                title: 'OOL Hotel'
+            });
+        }
+    </script>
+</body>
+</html>
