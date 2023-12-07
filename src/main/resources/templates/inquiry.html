@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>문의하기</title>
+    <script th:inline="javascript">
+        function confirmSubmit() {
+            var agreeCheckbox = document.getElementById('agree');
+            if (!agreeCheckbox.checked) {
+                alert('개인정보 수집 및 이용에 동의해야 합니다.');
+                return false;
+            }
+
+            var userConfirmed = confirm('제출하시겠습니까?');
+            if (userConfirmed) {
+                // 사용자가 확인을 선택한 경우에만 제출
+                showSubmitMessage(); // 성공 메시지 표시
+                return true;
+            } else {
+                // 사용자가 취소한 경우 제출 취소
+                return false;
+            }
+        }
+
+        function showSubmitMessage() {
+            alert('제출하였습니다.');
+        }
+    </script>
+    <style>
+        body {
+            font-size: 16px;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, textarea, select {
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        p {
+            font-size: 18px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+        }
+
+        input[type="submit"] {
+            font-size: 18px;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h2>문의하기</h2>
+
+<!--<form action="/submit" method="post"  th:object="${inquiryForm}" onsubmit="return confirmSubmit()">-->
+<label for="questionType">질문 유형:</label>
+<select id="questionType" name="questionType" required>
+    <option value="general">일반 문의</option>
+    <option value="reservation">예약 관련</option>
+    <!-- 필요에 따라 옵션을 추가하세요 -->
+</select>
+<br>
+
+<label for="title">제목:</label>
+<input type="text" id="title" name="title"  required>
+<br>
+
+<label for="content">내용:</label>
+<textarea id="content" name="content"  rows="4" required></textarea>
+<br>
+
+<label for="name">성명:</label>
+<input type="text" id="name" name="name" required>
+<br>
+
+<label for="email">이메일:</label>
+<input type="email" id="email" name="email"  required>
+<br>
+
+<label for="phone">휴대전화:</label>
+<input type="tel" id="phone" name="phone"  required>
+<br>
+
+<label for="agree">
+    <input type="checkbox" id="agree" name="agree" required>
+    개인정보 수집 및 이용에 동의합니다.
+</label>
+<br>
+
+<!-- 호텔 번호 추가 -->
+<p th:text="'호텔 번호: ' + ${hotelNumber}"></p>
+
+<button onClick="submit()">제출</button>
+<!--</form>-->
+<script>
+    function submit(){
+         var agreeCheckbox = document.getElementById('agree');
+        if (!agreeCheckbox.checked) {
+            alert('개인정보 수집 및 이용에 동의해야 합니다.');
+            return;
+        }
+
+        var userConfirmed = confirm('제출하시겠습니까?');
+        if (userConfirmed) {
+            // 사용자가 확인을 선택한 경우에만 제출
+        var title=document.getElementById("title").value;
+         fetch("/submit",{
+                method:"POST",
+                headers:{
+                    "Content-type":"application/json"
+                },
+                body:JSON.stringify({
+                    title:title,
+
+                })
+
+            })
+            .then(response=>response.json())
+            .then(data=>{
+                console.log(data)
+                showSubmitMessage(); // 성공 메시지 표시
+            });
+            }
+    }
+</script>
+
+</body>
+</html>

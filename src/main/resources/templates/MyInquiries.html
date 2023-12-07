@@ -1,0 +1,22 @@
+<!-- src/main/resources/templates/my-inquiries.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>나의 문의 내역</title>
+</head>
+<body>
+
+<h2>나의 문의 내역</h2>
+<!-- 나의 문의 내역을 동적으로 표시하는 내용 추가 -->
+<ul>
+  <!-- Thymeleaf를 사용하여 나의 문의 내역을 반복하여 표시 -->
+  <li >
+    <p th:text="${MyInquires.title}"></p>
+    <p th:text="${MyInquires.content}"></p>
+    <!-- 필요한 다른 속성들을 표시 -->
+  </li>
+</ul>
+
+</body>
+</html>

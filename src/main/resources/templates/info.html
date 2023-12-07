@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>호텔 소개</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        header {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            padding: 5px;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px;
+        }
+
+        div.info-container {
+            background-image: url('https://contents.hiltonhotels.jp/ko/b/top_main_20220620225544_lg_pc.jpg'); /* 배경 이미지 경로 지정 */
+            background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+            background-position: center; /* 배경 이미지를 가운데 정렬 */
+            background-repeat: no-repeat; /* 배경 이미지 반복 없음 */
+            background-color: rgba(0, 0, 0, 0.3); /* 배경색을 조금 흐리게 설정 */
+            color: #ffffff; /* 텍스트 색상을 밝은 배경에 대비되도록 흰색으로 설정 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 300px; /* 높이를 300px로 설정 */
+            width: 80%; /* 너비는 100%로 설정하여 제한 없이 표시 */
+        }
+
+        div.info-container h2 {
+            margin: 0;
+        }
+
+        div.info-container p {
+            color: #ffffff;
+        }
+
+        .fac {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .fac div {
+            flex: 1 0 calc(33.33% - 5px);
+            max-width: calc(33.33% - 5px);
+        }
+
+        .fac img {
+            width: 100%;
+            height: auto;
+        }
+
+        .fac-text {
+            text-align: center;
+            margin-top: 5px;
+            color: #000000;
+        }
+
+        .history-container {
+            background-image: url('https://media.istockphoto.com/id/1450362364/ko/%EC%82%AC%EC%A7%84/%EB%9D%BC%EC%8A%A4%EB%B2%A0%EA%B0%80%EC%8A%A4-%ED%8C%9C-%ED%8A%B8%EB%A6%AC-%EB%AA%A8%ED%85%94-%EC%88%98%EC%98%81%EC%9E%A5-%EC%B9%B4%EC%A7%80%EB%85%B8-%ED%98%B8%ED%85%94-%ED%8C%8C%EB%85%B8%EB%9D%BC%EB%A7%88-%EB%84%A4%EB%B0%94%EB%8B%A4.jpg?s=170667a&w=0&k=20&c=mH2lseMOE4LjO7T_oX7z82ZRdVxjCZ_q7eKoCXKEqYM='); /* 배경 이미지 경로 지정 */
+            background-size: cover; /* 배경 이미지를 컨테이너에 맞게 조절 */
+            background-position: center; /* 배경 이미지를 가운데 정렬 */
+            background-repeat: no-repeat; /* 배경 이미지 반복 없음 */
+            background-color: rgba(0, 0, 0, 0.8); /* 배경색을 조금 흐리게 설정 */
+            color: #ffffff; /* 텍스트 색상을 밝은 배경에 대비되도록 흰색으로 설정 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 300px; /* 높이를 300px로 설정 */
+            width: 80%; /* 너비는 100%로 설정하여 제한 없이 표시 */
+        }
+
+        .history-container h2 {
+            margin: 0;
+            color: #000000
+        }
+
+        .history-container p {
+            color: #ffffff;
+        }
+
+        .history-text {
+            text-align: left;
+            margin-top: 5px;
+            width: 1000px;
+        }
+
+        .history-image {
+            width: 300px; /* Set the width of the image */
+            height: 300px; /* Set the height of the image */
+            object-fit: cover; /* Ensure the image covers the container */
+            margin-right: 20px; /* Add margin to separate image and text */
+        }
+
+        .history-odd,
+        .history-even {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .history_img-odd,
+        .history_img-even {
+            width: 500px; /* Set the width of the image */
+            height: 500px; /* Set the height of the image */
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            margin-top: 100px;
+            width: 100%;
+            bottom: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>OOL Hotel</h1>
+        <nav>
+            <a href="#">로그인</a>
+            <a href="#">회원가입</a>
+            <a href="#">언어설정</a>
+        </nav>
+    </header>
+    <div class="info-container">
+        <h2>소개</h2>
+    </div>
+    <section>
+        <p>저희 OOL Hotel은 도심의 중심에 위치하여 편리한 교통과 다양한 관광지에 쉽게 접근할 수 있습니다. 호텔은 주요 지하철 역과 버스 정류장에서 도보로 몇 분 거리에 있으며, 주변에는 상점, 레스토랑, 문화 시설 등이 있어 편리한 여행이 가능합니다.</p>
+        <p>또한, 호텔 주변에는 아름다운 공원과 자연 경관이 어우러져 휴식과 산책을 즐길 수 있는 좋은 환경이 조성되어 있습니다. OOL Hotel은 고객들에게 편안하고 안락한 숙박 환경을 제공하기 위해 최선을 다하고 있습니다.</p>
+        <p>더 자세한 정보는 호텔 프런트 데스크에서 문의하시거나, 공식 웹사이트를 참고해주시기 바랍니다.</p>
+    </section>
+    
+    <h2>주요 시설</h2>
+    <section>
+        <div class="fac">
+            <div>
+                <img src="https://static.hyundailivart.co.kr/upload_mall/board/ME00000044/B200023245/tplt/0000197557_20210420163905690.jpg" alt="fac1">
+                <p class="fac-text">침실</p>
+            </div>
+            <div>
+                <img src="https://img1.daumcdn.net/thumb/C500x500/?fname=http://t1.daumcdn.net/brunch/service/user/1jPF/image/M8OMGPoKMbLpUcA_KPlpdaMQ9Z4.jpg" alt="fac2">
+                <p class="fac-text">수영장</p>
+            </div>
+            <div>
+                <img src="https://ak-d.tripcdn.com/images/1i66q22344w6vm1pd8828.jpg" alt="fac3">
+                <p class="fac-text">근처 관광지</p>
+            </div>
+            <div>
+                <img src="https://m.lightingworld.kr/web/product/big/202106/841332df99811300bae5532e3130f0d9.jpg" alt="fac4">
+                <p class="fac-text">로비</p>
+            </div>
+            <div>
+                <img src="https://img.waimaoniu.net/745/745-202306191720143743.jpg" alt="fac5">
+                <p class="fac-text">자연 경관</p>
+            </div>
+            <div>
+                <img src="https://qi-o.qoo10cdn.com/goods_image_big/6/6/8/2/10032836682c_l.jpg" alt="fac6">
+                <p class="fac-text">카지노</p>
+            </div>
+        </div>
+    </section>
+    
+    <div class="history-container">
+        <h2>연혁</h2>
+    </div>
+
+    <div class="history-odd">
+        <img class="history_img-odd" src="https://gongu.copyright.or.kr/gongu/wrt/cmmn/wrtFileImageView.do?wrtSn=13070941&filePath=L2Rpc2sxL25ld2RhdGEvMjAxNy8yMS9DTFM2LzEzMDcwOTQxX1dSVF8yMV9DTFM2XzIwMTcxMDEwXzE1MQ==&thumbAt=Y&thumbSe=b_tbumb&wrtTy=10006" alt="History Image" >
+        <p class="history-text"><b>1950년대</b><br>OOL Hotel 설립 및 개장. 호텔 업계에서 급속한 성장과 혁신으로 고객들에게 편안하고 품격 있는 숙박을 제공합니다.</p>
+    </div>
+    
+    <div class="history-even">
+        <p class="history-text"><b>1960년대</b><br>새로운 변화와 서비스 향상을 위한 연구 및 노력. OOL Hotel은 고객들에게 더 나은 경험을 제공하기 위해 끊임없이 노력합니다.</p>
+        <img class="history_img-even" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqQ83ua3Aa0oQeKnwy91ykFKBbGdtrh3O37eL1Q84QRCl5xzt4uszlj6LLmNBcqQB_hDc&usqp=CAU" alt="History Image">
+    </div>
+
+    <div class="history-odd">
+        <img class="history_img-odd" src="https://gongu.copyright.or.kr/gongu/wrt/cmmn/wrtFileImageView.do?wrtSn=13070941&filePath=L2Rpc2sxL25ld2RhdGEvMjAxNy8yMS9DTFM2LzEzMDcwOTQxX1dSVF8yMV9DTFM2XzIwMTcxMDEwXzE1MQ==&thumbAt=Y&thumbSe=b_tbumb&wrtTy=10006" alt="History Image">
+        <p class="history-text"><b>1950년대</b><br>OOL Hotel 설립 및 개장. 호텔 업계에서 급속한 성장과 혁신으로 고객들에게 편안하고 품격 있는 숙박을 제공합니다.</p>
+    </div>
+
+    <div class="history-even">
+        <p class="history-text"><b>1960년대</b><br>새로운 변화와 서비스 향상을 위한 연구 및 노력. OOL Hotel은 고객들에게 더 나은 경험을 제공하기 위해 끊임없이 노력합니다.</p>
+        <img class="history_img-even" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqQ83ua3Aa0oQeKnwy91ykFKBbGdtrh3O37eL1Q84QRCl5xzt4uszlj6LLmNBcqQB_hDc&usqp=CAU" alt="History Image">
+    </div>
+    <footer>
+        <p>&copy; 2023 OOL Hotel. All rights reserved.</p>
+    </footer>
+</body>
+</html>
