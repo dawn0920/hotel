@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Hotel</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 80%;
+            margin: auto;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            gap: 10px;
+            margin-left: 950px;
+        }
+
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            padding: 5px;
+        }
+        .slideshow-container {
+            max-width: 70%;
+            position: relative;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 20 20 10 20px;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        img {
+            width: 1100px;
+            height: 615px;
+            margin: 0 10px 10px 0
+        }
+        .side-boxes {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .side-boxes p {
+            margin-left: 10px;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        .side-box {
+            width: 222px;
+            height: 198px;
+            background-color: #ddd;
+            margin-bottom: 10px;
+        }
+        .horizontal-boxes {
+            display: flex;
+            justify-content: center;
+        }
+
+        .horizontal-box {
+            width: 20%;
+            height: 150px;
+            background-color: #ddd;
+            margin: 0 7px;
+        }
+
+        .horizontal-box p {
+            color: #000000;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .horizontal-box:last-child {
+            width: 49.5%;
+        }
+
+		footer {
+            color: #000000;
+            padding: 10px;
+            margin-top: 100px;
+            width: 100%;
+            bottom: 0;
+            text-align: center;
+        }
+
+        hr {
+          display: block;
+          margin-top: 0.5em;
+          margin-bottom: 0.5em;
+          margin-left: auto;
+          margin-right: auto;
+          border-style: inset;
+          border-width: 1px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 헤더 부분 -->
+    <header>
+        <a href="/main"><h1>OOL Hotel</h1></a>
+        <nav>
+            <a href="/login">로그인</a>
+            <a href="/join">회원가입</a>
+        </nav>
+    </header>
+    <hr/>
+
+    <!-- 슬라이드 부분 -->
+    <div class="slideshow-container">
+        <div class="mySlides">
+            <img src="https://blog.kakaocdn.net/dn/bA1sr2/btqHuh1l248/TZuLsCjZxC11sOxumbog3K/img.jpg" alt="Slide 1">
+        </div>
+
+        <div class="mySlides">
+            <img src="https://image.goodchoice.kr/affiliate/2019/12/04/5de71090e7bf4.jpg" alt="Slide 2">
+        </div>
+
+        <div class="mySlides">
+            <img src="https://img.einet.kr/P202101006/landscape/slides/02.jpg" alt="Slide 3">
+        </div>
+
+        <!-- 사각형 부분 -->
+        <div class="side-boxes">
+            <a href="/info" class="side-box"><p>호텔 소개</p></a>
+            <a href="/locate" class="side-box"><p>찾아오시는 길</p></a>
+            <a href="contact.html" class="side-box"><p>문의사항</p></a>
+        </div>
+    </div>
+    <div class="horizontal-boxes">
+        <a href="info.html" class="horizontal-box"><p>예약 확인하기</p></a>
+        <a href="info.html" class="horizontal-box"><p>예약 칸</p></a>
+    </div>
+
+    <!-- JavaScript로 슬라이드 쇼 구현 -->
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slideIndex++;
+
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+
+            setTimeout(showSlides, 3000); // 3초 간격으로 슬라이드 전환
+        }
+    </script>
+    <!-- 푸터 부분 -->
+     <footer>
+        <p>&copy; 2023 OOL Hotel. All rights reserved.</p>
+    </footer>
+</body>
+</html>

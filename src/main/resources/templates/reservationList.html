@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Reservation List</title>
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f3f3f3;
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 5px;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>예약정보</h1>
+  <table border="1">
+    <tr>
+      <th>성인</th>
+      <th>어린이</th>
+      <th>요청사항</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Room Type</th>
+    </tr>
+    <tr th:each="reservation : ${reservations}">
+      <td th:text="${reservation.adult_num}"></td>
+      <td th:text="${reservation.child_num}"></td>
+      <td th:text="${reservation.request}"></td>
+      <td th:text="${reservation.res_f_date}"></td>
+      <td th:text="${reservation.res_e_date}"></td>
+      <td th:text="${reservation.room_type}"></td>
+    </tr>
+  </table>
+
+  <h1>호텔 룸 정보</h1>
+  <table border="1">
+    <tr>
+      <th>Room</th>
+      <th>Price</th>
+    </tr>
+    <tr th:each="hotelroom : ${hotelroom}">
+      <td th:text="${hotelroom.room}"></td>
+      <td th:text="${hotelroom.price}"></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>
