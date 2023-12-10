@@ -1,11 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>호텔</title>
+    <title>예약</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
-<body>
 
+<body>
+객실 타입
+<form id="reservationForm">
+    <select id="room_type_id" name="room_type_id" class="form-control">
+        <option value="" selected>객실 타입</option>
+        <option th:each="hotelRoom : ${hotelroom}" th:value="${hotelRoom.id}" th:text="${hotelRoom.room}"></option>
+    </select>
+
+
+
+
+    </select>
+    체크인 <input id="res_f_date" type="date" class="form-control">
+    체크아웃 <input id="res_e_date" type="date" class="form-control">
+    어른 수 <input id="adult_num" type="text" class="form-control">
+    아이 수 <input id="child_num" type="text" class="form-control">
+    요청사항 <textarea name="" id="request" cols="30" rows="10" class="form-control" placeholder="요청사항"></textarea>
+    <div class="text-center">
+        <button id="submit-btn" class="btn btn-primary">예약</button>
+    </div>
+</form>
+
+
+<script>
+    var submitBtn = document.getElementById("submit-btn");
+submitBtn.addEventListener("click", function() {
+    var room_type_id = document.getElementById("room_type_id").value;
+    var res_f_date = document.getElementById("res_f_date").value;
+    var res_e_date = document.getElementById("res_e_date").value;
+    var adult_num = document.getElementById("adult_num").value;
+    var child_num = document.getElementById("child_num").value;
+    var request = document.getElementById("request").value;
+
+    console.log(room_type_id, res_f_date, res_e_date, adult_num, child_num, request);
+
+    fetch("/api/reservation", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({
+            room_type_id: room_type_id, // 서버에서 기대하는 키를 유지
+            res_f_date: res_f_date,
+            res_e_date: res_e_date,
+            adult_num: adult_num,
+            child_num: child_num,
+            request: request
+        })
+    })
+    .then(function() {
+        alert("예약 되었습니다");
+        location.replace("/main");
+    });
+});
+
+
+</script>
 </body>
 </html>

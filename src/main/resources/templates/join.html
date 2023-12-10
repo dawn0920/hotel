@@ -115,10 +115,18 @@
                 password:password
             })
         })
-        .then(function(){
-            alert("회원가입이 완료되었습니다.")
-            location.replace("/main")
+        .then(response=>{
+            return response.json()
         })
+        .then(data=>{
+                console.log(data)
+                if(data.success){
+                    location.href="/login"
+                }
+                else{
+                    window.alert(data.message)
+                }
+            })
     })
 </script>
 </body>

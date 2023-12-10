@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.util.List;
+
 @Entity
 @Getter
 @NoArgsConstructor
@@ -20,6 +22,13 @@ public class Hotelroom {
     private String room;
     @Column(name = "price", updatable = false)
     private String price;
+
+    @OneToMany(mappedBy = "room_type", cascade = CascadeType.PERSIST)
+    private List<Reservation> reservations;
+
+    public String toString() {
+        return this.room; // 또는 다른 원하는 정보를 반환
+    }
 
     public Long getId() {
         return id;
@@ -44,4 +53,6 @@ public class Hotelroom {
     public void setPrice(String price) {
         this.price = price;
     }
+
+
 }

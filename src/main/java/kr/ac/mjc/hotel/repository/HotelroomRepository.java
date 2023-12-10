@@ -6,5 +6,5 @@ import kr.ac.mjc.hotel.domain.Hotelroom;
 
 @Repository
 public interface HotelroomRepository extends JpaRepository<Hotelroom, Long> {
-
+    Hotelroom findByRoom(String roomType);
 }

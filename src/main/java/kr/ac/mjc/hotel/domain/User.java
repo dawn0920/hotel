@@ -2,6 +2,8 @@ package kr.ac.mjc.hotel.domain;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class User{
     @Id
@@ -20,6 +22,9 @@ public class User{
 
     @Column(name = "password", nullable = false)
     private String password;
+
+    @OneToMany(mappedBy = "rester")
+    private List<Reservation> reservations;
 
     public long getId() {
         return id;

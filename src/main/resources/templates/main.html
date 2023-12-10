@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -123,8 +123,17 @@
     <header>
         <a href="/main"><h1>OOL Hotel</h1></a>
         <nav>
-            <a href="/login">로그인</a>
-            <a href="/join">회원가입</a>
+            <!-- Thymeleaf 템플릿 -->
+            <div th:if="${email != null}">
+                <span th:text="${email}"></span>
+                <button id="submit-btn2" class="btn btn-primary" onclick="location.href='/logout'">로그아웃</button>
+
+            </div>
+            <div th:unless="${email != null}">
+                <a href="/login">로그인</a>
+            </div>
+
+
         </nav>
     </header>
     <hr/>

@@ -10,7 +10,6 @@ import java.sql.Date;
 
 @Entity
 @Getter
-@NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 public class Reservation {
 
@@ -25,33 +24,42 @@ public class Reservation {
     @Column(name = "res_e_date", nullable = false)
     private java.sql.Date res_e_date;
 
-    @Column(name = "room_type", nullable = false)
-    private String room_type;
-
     @Column(name = "adult_num", updatable = false)
     private int adult_num;
+
     @Column(name = "child_num", updatable = false)
     private int child_num;
+
     @Column(name = "request", updatable = false)
     private String request;
 
-    @Column(name = "res_status", nullable = false)
-    private String res_status;
-
-    /*
     @ManyToOne
+    @JoinColumn(name = "rester_id")
     private User rester;
-    */
 
-    public Reservation(Date res_f_date, Date res_e_date, String room_type, int adult_num, int child_num, String request, String res_status) {
+    @ManyToOne
+    @JoinColumn(name = "room_type_id") // 예시에 따라 필요에 따라 설정
+    private Hotelroom room_type;
+
+
+    // 다른 생성자 로직 또는 초기화 로직
+    public Reservation(java.sql.Date res_f_date, java.sql.Date res_e_date, int adult_num, int child_num, String request, User rester, Hotelroom room_type) {
         this.res_f_date = res_f_date;
         this.res_e_date = res_e_date;
         this.room_type = room_type;
         this.adult_num = adult_num;
         this.child_num = child_num;
         this.request = request;
-        this.res_status = res_status;
+        this.rester = rester;
+
+        // 다른 생성자 로직 또는 초기화 로직
     }
+
+    public Reservation(){}
+
+    public Reservation(Date resFDate, Date resEDate, int adultNum, int childNum, String request, String roomType) {
+    }
+
 
     public Long getId() {
         return id;
@@ -75,14 +83,6 @@ public class Reservation {
 
     public void setRes_e_date(Date res_e_date) {
         this.res_e_date = res_e_date;
-    }
-
-    public String getRoom_type() {
-        return room_type;
-    }
-
-    public void setRoom_type(String room_type) {
-        this.room_type = room_type;
     }
 
     public int getAdult_num() {
@@ -109,16 +109,6 @@ public class Reservation {
         this.request = request;
     }
 
-    public String getRes_status() {
-        return res_status;
-    }
-
-    public void setRes_status(String res_status) {
-        this.res_status = res_status;
-    }
-
-
-    /*
     public User getRester() {
         return rester;
     }
@@ -126,5 +116,13 @@ public class Reservation {
     public void setRester(User rester) {
         this.rester = rester;
     }
-     */
+    public Hotelroom getRoom_type() {
+        return room_type;
+    }
+
+    public void setRoom_type(Hotelroom room_type) {
+        this.room_type = room_type;
+    }
+
+
 }
