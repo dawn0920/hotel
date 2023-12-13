@@ -35,7 +35,7 @@ public class ViewController {
     ReservationService reservationService;
 
     @GetMapping("/main")
-    public String newArticle(HttpServletRequest httpServletRequest, Model model) {
+    public String newMain(HttpServletRequest httpServletRequest, Model model) {
         HttpSession session = httpServletRequest.getSession(true);
 
         // 세션에 저장된 사용자 id
@@ -48,10 +48,16 @@ public class ViewController {
     }
 
     @GetMapping("/info")
-    public ModelAndView getInfo(){
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("info");
-        return mav;
+    public String newInfo(HttpServletRequest httpServletRequest, Model model) {
+        HttpSession session = httpServletRequest.getSession(true);
+
+        // 세션에 저장된 사용자 id
+        String email = (String) session.getAttribute("email");
+
+        // 모델에 사용자 이메일 추가
+        model.addAttribute("email", email);
+
+        return "info";
     }
 
     @GetMapping("/join")
@@ -62,10 +68,16 @@ public class ViewController {
     }
 
     @GetMapping("/login")
-    public ModelAndView getLogin(){
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("login");
-        return mav;
+    public String newLogin(HttpServletRequest httpServletRequest, Model model) {
+        HttpSession session = httpServletRequest.getSession(true);
+
+        // 세션에 저장된 사용자 id
+        String email = (String) session.getAttribute("email");
+
+        // 모델에 사용자 이메일 추가
+        model.addAttribute("email", email);
+
+        return "login";
     }
 
     @GetMapping("/logout")
@@ -91,7 +103,7 @@ public class ViewController {
             return "login";
         }
 
-
+        model.addAttribute("email", email);
         User loginUser = new User();
         loginUser.setEmail(email);
 

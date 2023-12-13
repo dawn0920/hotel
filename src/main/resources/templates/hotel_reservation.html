@@ -153,15 +153,13 @@ footer {
             <nav>
                 <!-- Thymeleaf 템플릿 -->
                 <div th:if="${email != null}">
-                    <span th:text="${email}"></span>
-                    <button id="submit-btn2" class="btn btn-primary" onclick="location.href='/logout'">로그아웃</button>
+                    <span th:text="${email}" style="color: #ffffff;"></span>
+                    <a href="/logout" style="margin-left:10px; color: #FAF2E9;">로그아웃</a>
 
                 </div>
                 <div th:unless="${email != null}">
-                    <a href="/login">로그인</a>
+                    <a href="/login" style="color: #ffffff;">로그인</a>
                 </div>
-
-
             </nav>
         </div>
     </header>

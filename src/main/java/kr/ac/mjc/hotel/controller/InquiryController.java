@@ -1,5 +1,7 @@
 package kr.ac.mjc.hotel.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import kr.ac.mjc.hotel.domain.Inquiry;
 import kr.ac.mjc.hotel.dto.InquiryForm;
 import kr.ac.mjc.hotel.service.InquiryService;
@@ -16,8 +18,16 @@ public class InquiryController {
     InquiryService inquiryService;
 
     @GetMapping("/inquiry")
-    public String showInquiryForm(Model model) {
+    public String showInquiryForm(HttpServletRequest httpServletRequest, Model model) {
+        HttpSession session = httpServletRequest.getSession(true);
+
+        // 세션에 저장된 사용자 id
+        String email = (String) session.getAttribute("email");
+
+        // 모델에 사용자 이메일 추가
+        model.addAttribute("email", email);
         model.addAttribute("inquiryForm", new InquiryForm());
+
         return "inquiry";
     }
 

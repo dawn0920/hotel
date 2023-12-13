@@ -252,12 +252,12 @@ footer {
         <nav>
             <!-- Thymeleaf 템플릿 -->
             <div th:if="${email != null}">
-                <span th:text="${email}"></span>
-                <button id="submit-btn2" class="btn btn-primary" onclick="location.href='/logout'">로그아웃</button>
+                <span th:text="${email}" style="color: #ffffff;"></span>
+                <a href="/logout" style="margin-left:10px; color: #FAF2E9;">로그아웃</a>
 
             </div>
             <div th:unless="${email != null}">
-                <a href="/login">로그인</a>
+                <a href="/login" style="color: #ffffff;">로그인</a>
             </div>
         </nav>
     </header>
@@ -313,6 +313,13 @@ footer {
 <script>
     function submit(){
          var agreeCheckbox = document.getElementById('agree');
+         var content = document.getElementById('content').value;
+         var email = document.getElementById('email').value;
+         var name = document.getElementById('name').value;
+         var phone = document.getElementById('phone').value;
+         var question_type = document.getElementById('questionType').value;
+         var title = document.getElementById('title').value;
+
         if (!agreeCheckbox.checked) {
             alert('개인정보 수집 및 이용에 동의해야 합니다.');
             return;
@@ -329,7 +336,11 @@ footer {
                 },
                 body:JSON.stringify({
                     title:title,
-
+                    content:content,
+                    email:email,
+                    name:name,
+                    phone:phone,
+                    question_type:question_type,
                 })
 
             })
