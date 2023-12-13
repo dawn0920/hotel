@@ -1,0 +1,73 @@
+a {
+    text-decoration: none;
+}
+
+header {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header>h2 {
+    margin-left: 20%;
+}
+
+header>nav {
+    width: 300px;
+    margin-right: 20%;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+header ul>li {
+    color: black;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+li {
+    list-style-type: none;
+}
+.main {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+div.main-container {
+    background-image: url('https://contents.hiltonhotels.jp/ko/b/top_main_20220620225544_lg_pc.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    width: 80%;
+}
+
+#map {
+    height: 400px;
+    width: 80%;
+    margin: 20px 0;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    margin-top: 100px;
+    width: 100%;
+    text-align: center;
+}
