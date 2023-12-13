@@ -25,6 +25,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation 'org.projectlombok:lombok:1.18.22'
 	annotationProcessor 'org.projectlombok:lombok:1.18.22'
+	implementation 'org.eclipse.persistence:eclipselink:2.7.9'
+
 }
 
 tasks.named('bootBuildImage') {

@@ -4,14 +4,17 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import kr.ac.mjc.hotel.domain.Hotelroom;
 import kr.ac.mjc.hotel.domain.Reservation;
+import kr.ac.mjc.hotel.domain.User;
 import kr.ac.mjc.hotel.dto.AddReservationRequest;
 import kr.ac.mjc.hotel.dto.ReservationResponse;
 import kr.ac.mjc.hotel.repository.HotelroomRepository;
 import kr.ac.mjc.hotel.repository.ReservationRepository;
+import kr.ac.mjc.hotel.repository.UserRepository;
 import kr.ac.mjc.hotel.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 
-@RestController
+@Controller
 public class ReservationController {
 
     private final ReservationRepository reservationRepository;
@@ -35,6 +38,8 @@ public class ReservationController {
     }
     @Autowired
     ReservationService reservationService;
+    @Autowired
+    UserRepository userRepository;
 
 
     @PostMapping("/api/reservation")
@@ -51,8 +56,8 @@ public class ReservationController {
             return ResponseEntity.ok().body(response);
         }
 
-        // 로그인이 되어있는 경우
-        request.setEmail(email);
+        User user = userRepository.findByEmail(email);
+        request.setRester(user);
 
         Reservation saveRequest = reservationService.save(request, email);
         response.setSuccess(true);

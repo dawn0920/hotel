@@ -7,8 +7,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
 
-    @NoArgsConstructor
+
+@NoArgsConstructor
     @AllArgsConstructor
     @Getter
     public class AddReservationRequest {
@@ -22,20 +24,20 @@ import lombok.NoArgsConstructor;
         private  int adult_num;
         private int child_num;
         private String request;
-        private String res_status;
 
-        public Reservation toEntity() {
-            Reservation reservation = new Reservation();
-            reservation.setRes_f_date(this.res_f_date);
-            reservation.setRes_e_date(this.res_e_date);
-            reservation.setAdult_num(this.adult_num);
-            reservation.setChild_num(this.child_num);
-            reservation.setRequest(this.request);
-            // 다른 필드들도 설정해 주세요
-            return reservation;
-        }
+    public Reservation toEntity() {
+        Reservation reservation = new Reservation();
+        reservation.setRes_f_date(this.res_f_date);
+        reservation.setRes_e_date(this.res_e_date);
+        reservation.setAdult_num(this.adult_num);
+        reservation.setChild_num(this.child_num);
+        reservation.setRequest(this.request);
+        reservation.setRester(this.rester);
+        return reservation;
+    }
 
-        public String getEmail() {
+
+    public String getEmail() {
             return email;
         }
 
@@ -51,4 +53,28 @@ import lombok.NoArgsConstructor;
             this.room_type = room_type;
         }
 
+        public Date getRes_f_date() {
+            return res_f_date;
+        }
+
+        public void setRes_f_date(Date res_f_date) {
+            this.res_f_date = res_f_date;
+        }
+
+        public Date getRes_e_date() {
+            return res_e_date;
+        }
+
+        public void setRes_e_date(Date res_e_date) {
+            this.res_e_date = res_e_date;
+        }
+
+    public User getRester() {
+        return rester;
     }
+
+    public void setRester(User rester) {
+        this.rester = rester;
+    }
+
+}

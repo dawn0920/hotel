@@ -10,6 +10,7 @@ import kr.ac.mjc.hotel.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -17,25 +18,20 @@ public class ReservationService {
 
     private final ReservationRepository reservationRepository;
     private final UserRepository userRepository;
-    @Autowired
-    HotelroomRepository hotelroomRepository;
+    private final HotelroomRepository hotelroomRepository;
+
 
     @Autowired
-    public ReservationService(ReservationRepository reservationRepository, UserRepository userRepository) {
+    public ReservationService(ReservationRepository reservationRepository, UserRepository userRepository, HotelroomRepository hotelroomRepository) {
         this.reservationRepository = reservationRepository;
         this.userRepository = userRepository;
+        this.hotelroomRepository = hotelroomRepository;
     }
 
     public Reservation save(AddReservationRequest request, String email) {
         User loginUser = userRepository.findByEmail(email);
         Reservation reservation = request.toEntity();
 
-        // 선택된 객실 타입을 가져와서 Hotelroom 객체로 변환
-        Hotelroom hotelroom = new Hotelroom();
-        String roomAsString = hotelroom.toString();
-        Hotelroom roomTypeEntity = hotelroomRepository.findByRoom(request.getRoom_type());
-        reservation.setRester(loginUser);
-        reservation.setRoom_type(roomTypeEntity);
 
         return reservationRepository.save(reservation);
     }
@@ -45,5 +41,10 @@ public class ReservationService {
         return reservationRepository.findAll();
     }
 
+    public static boolean isFirstDateEarlier(Date res_f_date, Date res_e_date) {
+        return res_f_date.before(res_e_date);
+    }
 }
+
+
 

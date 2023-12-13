@@ -86,8 +86,10 @@ public class ViewController {
 
     @GetMapping("/hotel_reservation")
     public String newArticle(HttpServletRequest httpServletRequest, Model model, String name) {
+        /*
         List<Hotelroom> hotelroom = hotelroomRepository.findAll();
         model.addAttribute("hotelroom", hotelroom);
+        */
 
         HttpSession session = httpServletRequest.getSession(true);
         String email = (String) session.getAttribute("email");
@@ -96,13 +98,10 @@ public class ViewController {
             return "login";
         }
 
-        // 사용자가 선택한 객실 타입을 컨트롤러로 전달
-        String selectedRoom = httpServletRequest.getParameter("room_type"); // 수정된 부분
-        model.addAttribute("selectedRoom", selectedRoom);
-
 
         User loginUser = new User();
         loginUser.setEmail(email);
+
 
         // 여기서 User 객체의 다른 필드들도 필요하다면, 해당 정보도 세션 또는 DB 등에서 가져와서 설정
 

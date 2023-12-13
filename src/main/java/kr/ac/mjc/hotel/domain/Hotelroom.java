@@ -21,14 +21,7 @@ public class Hotelroom {
     @Column(name = "room", updatable = false)
     private String room;
     @Column(name = "price", updatable = false)
-    private String price;
-
-    @OneToMany(mappedBy = "room_type", cascade = CascadeType.PERSIST)
-    private List<Reservation> reservations;
-
-    public String toString() {
-        return this.room; // 또는 다른 원하는 정보를 반환
-    }
+    private int price;
 
     public Long getId() {
         return id;
@@ -46,11 +39,11 @@ public class Hotelroom {
         this.room = room;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

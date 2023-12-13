@@ -37,16 +37,11 @@ public class Reservation {
     @JoinColumn(name = "rester_id")
     private User rester;
 
-    @ManyToOne
-    @JoinColumn(name = "room_type_id") // 예시에 따라 필요에 따라 설정
-    private Hotelroom room_type;
-
 
     // 다른 생성자 로직 또는 초기화 로직
-    public Reservation(java.sql.Date res_f_date, java.sql.Date res_e_date, int adult_num, int child_num, String request, User rester, Hotelroom room_type) {
+    public Reservation(java.sql.Date res_f_date, java.sql.Date res_e_date, int adult_num, int child_num, String request, User rester) {
         this.res_f_date = res_f_date;
         this.res_e_date = res_e_date;
-        this.room_type = room_type;
         this.adult_num = adult_num;
         this.child_num = child_num;
         this.request = request;
@@ -115,13 +110,6 @@ public class Reservation {
 
     public void setRester(User rester) {
         this.rester = rester;
-    }
-    public Hotelroom getRoom_type() {
-        return room_type;
-    }
-
-    public void setRoom_type(Hotelroom room_type) {
-        this.room_type = room_type;
     }
 
 
