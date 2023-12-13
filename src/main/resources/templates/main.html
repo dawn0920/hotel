@@ -1,127 +1,331 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Hotel</title>
+    <title>Hotel</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            flex-direction: column;
-        }
+        @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-style: normal;
+}
+<!--  -->
 
-        header {
-            background-color: #ffffff;
-            color: #000000;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 80%;
-            margin: auto;
-        }
+* {
+    font-family: 'Pretendard-Regular';
+    font-weight: 400;
+}
+.menu {
+    width: 28vw;
+    overflow: hidden;
+}
 
-        header h1 {
-            margin: 0;
-        }
+.menu > li {
+    width: 13%; /*20*5=100%*/
+    float: left;
+    text-align: center;
+    line-height: 40px;
+    list-style-type: none;
+}
 
-        nav {
-            display: flex;
-            gap: 10px;
-            margin-left: 950px;
-        }
+.menu a {
+    color: #ffffff;
+    text-decoration-line: none;
+}
 
-        nav a {
-            color: #000000;
-            text-decoration: none;
-            padding: 5px;
-        }
-        .slideshow-container {
-            max-width: 70%;
-            position: relative;
-            margin: auto;
-            display: flex;
-            justify-content: space-between;
-            padding: 20 20 10 20px;
-        }
+header nav{
+    float: left;
+    text-align: center;
+    line-height: 70px;
+    list-style-type: none;
+}
 
-        .mySlides {
-            display: none;
-        }
+.logo {
+    padding: 0 0 0 28%;
+}
 
-        img {
-            width: 1100px;
-            height: 615px;
-            margin: 0 10px 10px 0
-        }
-        .side-boxes {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            background-color: rgba(255, 255, 255, 0.5);
-        }
+section {
+    background-color: #35534D;
+    padding: 0 0 0 20%;
+}
+<!-- -->
 
-        .side-boxes p {
-            margin-left: 10px;
-            color: #000000;
-            font-weight: bold;
-        }
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
 
-        .side-box {
-            width: 222px;
-            height: 198px;
-            background-color: #ddd;
-            margin-bottom: 10px;
-        }
-        .horizontal-boxes {
-            display: flex;
-            justify-content: center;
-        }
+a {
+    text-decoration: none;
+}
+ul {
+    display: flex;
+    align-items: center;
+}
+.login {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
 
-        .horizontal-box {
-            width: 20%;
-            height: 150px;
-            background-color: #ddd;
-            margin: 0 7px;
-        }
+header {
+    background-color: #35534D;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    height: 90px;
+}
+.head {
+    display: flex;
+    justify-content: right;
+}
 
-        .horizontal-box p {
-            color: #000000;
-            font-weight: bold;
-            margin-left: 10px;
-        }
+/*
+header ul {
+    display: flex;
+    justify-content: space-between;
+} */
 
-        .horizontal-box:last-child {
-            width: 49.5%;
-        }
+/* header ul>li {
+    color: black;
+    font-size: 15px;
+}
 
-		footer {
-            color: #000000;
-            padding: 10px;
-            margin-top: 100px;
-            width: 100%;
-            bottom: 0;
-            text-align: center;
-        }
+li {
+    list-style-type: none;
+} */
 
-        hr {
-          display: block;
-          margin-top: 0.5em;
-          margin-bottom: 0.5em;
-          margin-left: auto;
-          margin-right: auto;
-          border-style: inset;
-          border-width: 1px;
-        }
+.Slidesbackground {
+    margin: 0;
+    padding: 0;
+}
+
+.slideshow-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.mySlides {
+    width: 850px;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s;
+}
+
+.mySlides.active {
+    display: block;
+    opacity: 1;
+}
+
+.slideshow-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.fade {
+    animation-duration: 3s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+
+.horizontal-boxes {
+    display: flex;
+    justify-content: center;
+}
+
+.horizontal-box {
+    width: 20%;
+    height: 150px;
+    background-color: #ddd;
+    margin: 0 7px;
+}
+
+.horizontal-box p {
+    color: #000000;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.horizontal-box:last-child {
+    width: 49.5%;
+}
+
+footer {
+    color: #000000;
+    margin-top: 100px;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.boxes {
+    margin-left: 10px;
+}
+
+.box {
+    width: 300px;
+    height: 176.5px;
+    background-color: #777777;
+    margin-bottom: 10px;
+}
+
+.box-img1 {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1679678690998-88c8711cbe5f?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.box-img1:hover {
+    background: url("https://images.unsplash.com/photo-1679678690998-88c8711cbe5f?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: black;
+}
+
+.box-img2 {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://i.pinimg.com/564x/23/01/d8/2301d836e381ee463bc9b8f8fd7ee5aa.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.box-img2:hover {
+    background: url("https://i.pinimg.com/564x/23/01/d8/2301d836e381ee463bc9b8f8fd7ee5aa.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.box-img3 {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1679678691263-cc7f30ce02f8?q=80&w=2576&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.box-img3:hover {
+    background: url("https://images.unsplash.com/photo-1679678691263-cc7f30ce02f8?q=80&w=2576&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.box1 {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1457903929265-3a43823e29c3?q=80&w=2636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 375px;
+    height: 170px;
+    margin-right: 10px;
+}
+
+.box1:hover {
+    background: url("https://images.unsplash.com/photo-1457903929265-3a43823e29c3?q=80&w=2636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 375px;
+    height: 170px;
+    margin-right: 10px;
+}
+
+
+.box2 {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1457904297262-2dcf97b883ef?q=80&w=2634&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 775px;
+    height: 170px;
+}
+
+.box, .box1, .box2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px; /* 폰트 크기 조절 */
+    color: white; /* 글씨 색상 변경 */
+    text-align: center;
+    font-weight: normal;
+}
+
+.box2:hover {
+    background: url("https://images.unsplash.com/photo-1457904297262-2dcf97b883ef?q=80&w=2634&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 775px;
+    height: 170px;
+}
+
+.main2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
     </style>
 </head>
+
 <body>
-    <!-- 헤더 부분 -->
+<!-- 헤더 부분 -->
+<section>
     <header>
-        <a href="/main"><h1>OOL Hotel</h1></a>
+        <a href="/main"><img style="width: auto; height:55px; padding: 10px 0 0 0" src="https://media.discordapp.net/attachments/945251738569568276/1184467057148952626/logo4.png?ex=658c13e8&is=65799ee8&hm=5722dae61dd96b0eb25a7f8181430e050c0ad775d96aceb4c4b6b9296ca78135&=&format=webp&quality=lossless&width=1468&height=733"></a>
+        <div>
+            <ul class="menu">
+                <li>
+                    <a href="/info">소개</a>
+                </li>
+                <li>
+                    <a href="/inquiry">문의</a>
+                </li>
+                <li>
+                    <a href="/hotel_reservation">예약</a>
+                </li>
+                <li>
+                    <a href="/info">소개</a>
+                </li>
+                <li style="padding:0 0 0 10vw;">
+                    <a href="#"></a>
+                </li>
+                <li>
+                    <a href="#"></a>
+                </li>
+            </ul>
+        </div>
         <nav>
             <!-- Thymeleaf 템플릿 -->
             <div th:if="${email != null}">
@@ -136,61 +340,60 @@
 
         </nav>
     </header>
-    <hr/>
-
-    <!-- 슬라이드 부분 -->
+</section>
+<div class="main">
     <div class="slideshow-container">
-        <div class="mySlides">
-            <img src="https://blog.kakaocdn.net/dn/bA1sr2/btqHuh1l248/TZuLsCjZxC11sOxumbog3K/img.jpg" alt="Slide 1">
-        </div>
-
-        <div class="mySlides">
-            <img src="https://image.goodchoice.kr/affiliate/2019/12/04/5de71090e7bf4.jpg" alt="Slide 2">
-        </div>
-
-        <div class="mySlides">
-            <img src="https://img.einet.kr/P202101006/landscape/slides/02.jpg" alt="Slide 3">
-        </div>
-
-        <!-- 사각형 부분 -->
-        <div class="side-boxes">
-            <a href="/info" class="side-box"><p>호텔 소개</p></a>
-            <a href="/locate" class="side-box"><p>찾아오시는 길</p></a>
-            <a href="contact.html" class="side-box"><p>문의사항</p></a>
+        <div class="Slidesbackground">
+            <div class="mySlides fade">
+                <img src="https://images.unsplash.com/photo-1586611292717-f828b167408c?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                     class="slideshow-image">
+            </div>
+            <div class="mySlides fade">
+                <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="slideshow-image">
+            </div>
+            <div class="mySlides fade">
+                <img src="https://images.unsplash.com/photo-1455587734955-081b22074882?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                     class="slideshow-image">
+            </div>
         </div>
     </div>
-    <div class="horizontal-boxes">
-        <a href="info.html" class="horizontal-box"><p>예약 확인하기</p></a>
-        <a href="info.html" class="horizontal-box"><p>예약 칸</p></a>
+
+    <div class="boxes">
+        <div class="box box-img1" style="cursor: pointer;" onclick="window.open('/info');">호텔 소개</div>
+        <div class="box box-img2" style="cursor: pointer;" onclick="window.open('#.html');"></div>
+        <div class="box box-img3" style="cursor: pointer;" onclick="window.open('/inquiry');">문의사항</div>
     </div>
+</div>
 
-    <!-- JavaScript로 슬라이드 쇼 구현 -->
-    <script>
-        var slideIndex = 0;
-        showSlides();
+<div class="main2">
+    <div class="box1" style=" cursor: pointer;" onclick="window.open('/reservationslist');">예약 확인하기</div>
+    <div class="box2" style=" cursor: pointer;" onclick="window.open('/hotel_reservation');">예약 칸</div>
+</div>
 
-        function showSlides() {
-            var i;
-            var slides = document.getElementsByClassName("mySlides");
+<script>
+    var slideIndex = 0;
+    showSlides();
 
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
 
-            slideIndex++;
-
-            if (slideIndex > slides.length) {
-                slideIndex = 1;
-            }
-
-            slides[slideIndex - 1].style.display = "block";
-
-            setTimeout(showSlides, 3000); // 3초 간격으로 슬라이드 전환
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
         }
-    </script>
-    <!-- 푸터 부분 -->
-     <footer>
-        <p>&copy; 2023 OOL Hotel. All rights reserved.</p>
-    </footer>
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1
+        }
+        slides[slideIndex - 1].style.display = "block";
+
+        setTimeout(showSlides, 2000);
+    }
+</script>
+
+<footer>
+    <p>&copy; 2023 Hotel. All rights reserved.</p>
+</footer>
 </body>
+
 </html>

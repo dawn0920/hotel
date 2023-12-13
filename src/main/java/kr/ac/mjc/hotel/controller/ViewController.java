@@ -47,13 +47,6 @@ public class ViewController {
         return "main";
     }
 
-
-    @GetMapping("/locate")
-    public ModelAndView getLocate(){
-        ModelAndView mav = new ModelAndView();
-        return mav;
-    }
-
     @GetMapping("/info")
     public ModelAndView getInfo(){
         ModelAndView mav = new ModelAndView();
