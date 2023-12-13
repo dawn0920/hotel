@@ -3,11 +3,80 @@
 <head>
   <title>Reservation List</title>
   <style>
+    @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-style: normal;
+    }
+    <!--  -->
+
+    * {
+        font-family: 'Pretendard-Regular';
+        font-weight: 400;
+    }
+    .menu {
+        width: 28vw;
+        overflow: hidden;
+    }
+
+    .menu > li {
+        width: 13%; /*20*5=100%*/
+        float: left;
+        text-align: center;
+        line-height: 40px;
+        list-style-type: none;
+    }
+
+    .menu a {
+        color: #ffffff;
+        text-decoration-line: none;
+    }
+
+    header nav{
+        float: left;
+        text-align: center;
+        line-height: 70px;
+        list-style-type: none;
+    }
+
+    .logo {
+        padding: 0 0 0 28%;
+    }
+
+    section {
+        background-color: #35534D;
+        padding: 0 0 0 20%;
+    }
+    <!-- -->
+
     body {
-        font-family: 'Arial', sans-serif;
-        background-color: #f3f3f3;
         margin: 0;
-        padding: 20px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    ul {
+        display: flex;
+        align-items: center;
+    }
+    .login {
+        width: 100%;
+        display: flex;
+        justify-content: right;
+    }
+
+    header {
+        background-color: #35534D;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 0;
+        height: 90px;
     }
     .container {
         max-width: 900px;
@@ -38,10 +107,59 @@
     tr:nth-child(even) {
         background-color: #f9f9f9;
     }
+
+    footer {
+      background-color: #35534D;
+      color: #ffffff;
+      margin-top: 14vh;
+      padding-top: 5vh;
+      padding-bottom: 5vh;
+      width: 100%;
+      bottom: 10%;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
-<div class="container">
+<section>
+  <header>
+    <a href="/main"><img style="width: auto; height:55px; padding: 10px 0 0 0" src="https://media.discordapp.net/attachments/945251738569568276/1184467057148952626/logo4.png?ex=658c13e8&is=65799ee8&hm=5722dae61dd96b0eb25a7f8181430e050c0ad775d96aceb4c4b6b9296ca78135&=&format=webp&quality=lossless&width=1468&height=733"></a>
+    <div>
+      <ul class="menu">
+        <li>
+          <a href="/info">소개</a>
+        </li>
+        <li>
+          <a href="/inquiry">문의</a>
+        </li>
+        <li>
+          <a href="/hotel_reservation">예약</a>
+        </li>
+        <li>
+          <a href="/info">소개</a>
+        </li>
+        <li style="padding:0 0 0 10vw;">
+          <a href="#"></a>
+        </li>
+        <li>
+          <a href="#"></a>
+        </li>
+      </ul>
+    </div>
+    <nav>
+      <!-- Thymeleaf 템플릿 -->
+      <div th:if="${email != null}">
+        <span th:text="${email}" style="color: #ffffff;"></span>
+        <a href="/logout" style="margin-left:10px; color: #FAF2E9;">로그아웃</a>
+
+      </div>
+      <div th:unless="${email != null}">
+        <a href="/login" style="color: #ffffff;">로그인</a>
+      </div>
+    </nav>
+  </header>
+</section>
+<div class="container" style="margin-top: 5%;">
   <h1>예약정보</h1>
   <table border="1">
     <tr>
@@ -50,7 +168,7 @@
       <th>요청사항</th>
       <th>Start Date</th>
       <th>End Date</th>
-      <th>Room Type</th>
+
     </tr>
     <tr th:each="reservation : ${reservations}">
       <td th:text="${reservation.adult_num}"></td>
@@ -58,7 +176,7 @@
       <td th:text="${reservation.request}"></td>
       <td th:text="${reservation.res_f_date}"></td>
       <td th:text="${reservation.res_e_date}"></td>
-      <td th:text="${reservation.room_type}"></td>
+
     </tr>
   </table>
 
@@ -68,11 +186,14 @@
       <th>Room</th>
       <th>Price</th>
     </tr>
-    <tr th:each="hotelroom : ${hotelroom}">
-      <td th:text="${hotelroom.room}"></td>
-      <td th:text="${hotelroom.price}"></td>
+    <td>스탠다드룸 (Standard Room)</td>
+    <td>28만원</td>
+
     </tr>
   </table>
 </div>
+<footer>
+  <p>&copy; 2023 Hotel. All rights reserved.</p>
+</footer>
 </body>
 </html>

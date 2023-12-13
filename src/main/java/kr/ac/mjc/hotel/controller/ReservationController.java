@@ -32,14 +32,15 @@ public class ReservationController {
     private final HotelroomRepository hotelroomRepository;
 
     @Autowired
+    ReservationService reservationService;
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
     public ReservationController(ReservationRepository reservationRepository, HotelroomRepository hotelroomRepository) {
         this.reservationRepository = reservationRepository;
         this.hotelroomRepository = hotelroomRepository;
     }
-    @Autowired
-    ReservationService reservationService;
-    @Autowired
-    UserRepository userRepository;
 
 
     @PostMapping("/api/reservation")
@@ -67,21 +68,23 @@ public class ReservationController {
                 .body(response);
     }
 
-
-
-
-
     @GetMapping("/reservationslist")
-    public String showReservations(Model model) {
-        List<Reservation> reservations = reservationRepository.findAll();
-        List<Hotelroom> hotelroom = hotelroomRepository.findAll();
+    public String showUserReservations(Model model, HttpServletRequest httpServletRequest) {
+        HttpSession session = httpServletRequest.getSession();
+        String email = (String) session.getAttribute("email");
 
-        model.addAttribute("reservations", reservations);
-        model.addAttribute("hotelroom", hotelroom);
+        // 모델에 사용자 이메일 추가
+        model.addAttribute("email", email);
 
-        return "reservationList";
+        if (email != null) {
+            User user = userRepository.findByEmail(email);
+            List<Reservation> userReservations = reservationRepository.findByRester(user);
+
+            model.addAttribute("reservations", userReservations);
+            return "reservationList";
+        } else {
+            // 로그인되지 않은 경우에 대한 처리 (예: 로그인 페이지로 리다이렉트)
+            return "redirect:/login"; // 적절한 로그인 페이지 URL로 변경
+        }
     }
-
-
-
 }
