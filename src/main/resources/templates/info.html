@@ -6,296 +6,295 @@
     <title>호텔 소개</title>
     <style>
         @font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-style: normal;
-}
-<!--  -->
+            font-family: 'Pretendard-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+            font-style: normal;
+        }
 
-* {
-    font-family: 'Pretendard-Regular';
-    font-weight: 400;
-}
-.menu {
-    width: 28vw;
-    overflow: hidden;
-}
+        * {
+            font-family: 'Pretendard-Regular';
+            font-weight: 400;
+        }
+        .menu {
+            width: 28vw;
+            overflow: hidden;
+        }
 
-.menu > li {
-    width: 13%; /*20*5=100%*/
-    float: left;
-    text-align: center;
-    line-height: 40px;
-    list-style-type: none;
-}
+        .menu > li {
+            width: 13%; /*20*5=100%*/
+            float: left;
+            text-align: center;
+            line-height: 40px;
+            list-style-type: none;
+        }
 
-.menu a {
-    color: #ffffff;
-    text-decoration-line: none;
-}
+        .menu a {
+            color: #ffffff;
+            text-decoration-line: none;
+        }
 
-header nav{
-    float: left;
-    text-align: center;
-    line-height: 70px;
-    list-style-type: none;
-}
+        header nav{
+            float: left;
+            text-align: center;
+            line-height: 70px;
+            list-style-type: none;
+        }
 
-.logo {
-    padding: 0 0 0 28%;
-}
+        .logo {
+            padding: 0 0 0 28%;
+        }
 
-.section_h {
-    background-color: #35534D;
-    padding: 0 0 0 20%;
-}
-<!-- -->
+        .section_h {
+            background-color: #35534D;
+            padding: 0 0 0 20%;
+        }
+        <!-- -->
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    flex-direction: column;
-}
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
 
-a {
-    text-decoration: none;
-}
-ul {
-    display: flex;
-    align-items: center;
-}
-.login {
-    width: 100%;
-    display: flex;
-    justify-content: right;
-}
+        a {
+            text-decoration: none;
+        }
+        ul {
+            display: flex;
+            align-items: center;
+        }
+        .login {
+            width: 100%;
+            display: flex;
+            justify-content: right;
+        }
 
-header {
-    background-color: #35534D;
-    height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin: auto;
-}
-.head {
-    display: flex;
-    justify-content: right;
-}
+        header {
+            background-color: #35534D;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin: auto;
+        }
+        .head {
+            display: flex;
+            justify-content: right;
+        }
 
-div section {
-    max-width: 800px;
-    margin: 20px;
+        div section {
+            max-width: 800px;
+            margin: 20px;
 
-}
+        }
 
-.first_full {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-}
+        .first_full {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
 
-.info_background-image,
-.history_background-image,
-.locate_background-image {
-    font-size: 2em;
-}
+        .info_background-image,
+        .history_background-image,
+        .locate_background-image {
+            font-size: 2em;
+        }
 
-.info-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 300px;
-    /* 높이를 300px로 설정 */
-    width: 80%;
-    position: relative;
-    /* 하위 요소에 절대 위치를 적용하기 위해 relative로 설정 */
-}
+        .info-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            /* 높이를 300px로 설정 */
+            width: 80%;
+            position: relative;
+            /* 하위 요소에 절대 위치를 적용하기 위해 relative로 설정 */
+        }
 
-.info_background-image {
-    background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/76240c44413521.5811e9db58522.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: brightness(0.8);
-    /* 이미지의 밝기를 낮춥니다 */
-    position: absolute;
-    /* 절대 위치를 적용 */
-    top: 0;
-    /* 상위 요소에 꽉 차도록 설정 */
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    /* 다른 내용 뒤에 배경 이미지가 위치하도록 함 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    /* 텍스트 색상을 하얀색으로 설정 */
-}
+        .info_background-image {
+            background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/76240c44413521.5811e9db58522.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.8);
+            /* 이미지의 밝기를 낮춥니다 */
+            position: absolute;
+            /* 절대 위치를 적용 */
+            top: 0;
+            /* 상위 요소에 꽉 차도록 설정 */
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            /* 다른 내용 뒤에 배경 이미지가 위치하도록 함 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            /* 텍스트 색상을 하얀색으로 설정 */
+        }
 
-.fac {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
+        .fac {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
 
-.fac div {
-    flex: 1 0 calc(33.33% - 20px);
-    /* 각 div 요소의 너비를 조절합니다 */
-    max-width: calc(33.33% - 20px);
-    /* 각 div 요소의 최대 너비를 조절합니다 */
-}
+        .fac div {
+            flex: 1 0 calc(33.33% - 20px);
+            /* 각 div 요소의 너비를 조절합니다 */
+            max-width: calc(33.33% - 20px);
+            /* 각 div 요소의 최대 너비를 조절합니다 */
+        }
 
-.fac img {
-    width: 100%;
-    height: auto;
-    filter: brightness(0.8);
-    /* 이미지의 밝기를 낮춥니다 */
-}
+        .fac img {
+            width: 100%;
+            height: auto;
+            filter: brightness(0.8);
+            /* 이미지의 밝기를 낮춥니다 */
+        }
 
-.fac-text {
-    text-align: center;
-    margin-top: 5px;
-    color: #000000;
-}
+        .fac-text {
+            text-align: center;
+            margin-top: 5px;
+            color: #000000;
+        }
 
-.second_full {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 0 15% 0 15%;
-}
+        .second_full {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 0 15% 0 15%;
+        }
 
-.history-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 300px;
-    /* 높이를 300px로 설정 */
-    width: 80%;
-    position: relative;
-    /* 하위 요소에 절대 위치를 적용하기 위해 relative로 설정 */
+        .history-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            /* 높이를 300px로 설정 */
+            width: 80%;
+            position: relative;
+            /* 하위 요소에 절대 위치를 적용하기 위해 relative로 설정 */
 
-}
+        }
 
-.history_background-image {
-    background-image: url('https://images.adsttc.com/media/images/5cef/f0b6/284d/d1ca/f600/00e1/slideshow/6.jpg?1559228589');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: brightness(0.8);
-    /* 이미지의 밝기를 낮춥니다 */
-    position: absolute;
-    /* 절대 위치를 적용 */
-    top: 0;
-    /* 상위 요소에 꽉 차도록 설정 */
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    /* 다른 내용 뒤에 배경 이미지가 위치하도록 함 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    /* 텍스트 색상을 하얀색으로 설정 */
-    font-size: 2em;
-}
+        .history_background-image {
+            background-image: url('https://images.adsttc.com/media/images/5cef/f0b6/284d/d1ca/f600/00e1/slideshow/6.jpg?1559228589');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.8);
+            /* 이미지의 밝기를 낮춥니다 */
+            position: absolute;
+            /* 절대 위치를 적용 */
+            top: 0;
+            /* 상위 요소에 꽉 차도록 설정 */
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            /* 다른 내용 뒤에 배경 이미지가 위치하도록 함 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            /* 텍스트 색상을 하얀색으로 설정 */
+            font-size: 2em;
+        }
 
-.history-text {
-    text-align: left;
-    margin-top: 5px;
-    width: 1000px;
-}
+        .history-text {
+            text-align: left;
+            margin-top: 5px;
+            width: 1000px;
+        }
 
-.history-image {
-    width: 300px;
-    /* Set the width of the image */
-    height: 300px;
-    /* Set the height of the image */
-    object-fit: cover;
-    /* Ensure the image covers the container */
-    margin-right: 20px;
-    /* Add margin to separate image and text */
-}
+        .history-image {
+            width: 300px;
+            /* Set the width of the image */
+            height: 300px;
+            /* Set the height of the image */
+            object-fit: cover;
+            /* Ensure the image covers the container */
+            margin-right: 20px;
+            /* Add margin to separate image and text */
+        }
 
-.history-odd,
-.history-even {
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 30px;
-}
+        .history-odd,
+        .history-even {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
 
-.history_img-odd,
-.history_img-even {
-    width: 500px;
-    /* Set the width of the image */
-    height: 500px;
-    /* Set the height of the image */
-}
+        .history_img-odd,
+        .history_img-even {
+            width: 500px;
+            /* Set the width of the image */
+            height: 500px;
+            /* Set the height of the image */
+        }
 
-.locate-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 300px;
-    /* 높이를 300px로 설정 */
-    width: 80%;
-    position: relative;
-    /* 하위 요소에 절대 위치를 적용하기 위해 relative로 설정 */
-}
+        .locate-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            /* 높이를 300px로 설정 */
+            width: 80%;
+            position: relative;
+            /* 하위 요소에 절대 위치를 적용하기 위해 relative로 설정 */
+        }
 
-.locate_background-image {
-    background-image: url('https://images.adsttc.com/media/images/55db/6bdf/e58e/ce04/3a00/0001/slideshow/13_localizacion.jpg?1440443305');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: brightness(0.8);
-    /* 이미지의 밝기를 낮춥니다 */
-    position: absolute;
-    /* 절대 위치를 적용 */
-    margin-top: 20px;
-    top: 0;
-    /* 상위 요소에 꽉 차도록 설정 */
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    /* 다른 내용 뒤에 배경 이미지가 위치하도록 함 */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    /* 텍스트 색상을 하얀색으로 설정 */
-    font-size: 2em;
-}
+        .locate_background-image {
+            background-image: url('https://images.adsttc.com/media/images/55db/6bdf/e58e/ce04/3a00/0001/slideshow/13_localizacion.jpg?1440443305');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.8);
+            /* 이미지의 밝기를 낮춥니다 */
+            position: absolute;
+            /* 절대 위치를 적용 */
+            margin-top: 20px;
+            top: 0;
+            /* 상위 요소에 꽉 차도록 설정 */
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+            /* 다른 내용 뒤에 배경 이미지가 위치하도록 함 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            /* 텍스트 색상을 하얀색으로 설정 */
+            font-size: 2em;
+        }
 
-#map {
-    height: 400px;
-    width: 80%;
-    margin: 20px 0;
-}
+        #map {
+            height: 400px;
+            width: 80%;
+            margin: 20px 0;
+        }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    margin-top: 100px;
-    width: 100%;
-    bottom: 0;
-    text-align: center;
-}
+        footer {
+            background-color: #333;
+            color: #fff;
+            margin-top: 100px;
+            width: 100%;
+            bottom: 0;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -397,7 +396,7 @@ footer {
     <div class="history-odd">
         <img class="history_img-odd"
              src="https://gongu.copyright.or.kr/gongu/wrt/cmmn/wrtFileImageView.do?wrtSn=13070941&filePath=L2Rpc2sxL25ld2RhdGEvMjAxNy8yMS9DTFM2LzEzMDcwOTQxX1dSVF8yMV9DTFM2XzIwMTcxMDEwXzE1MQ==&thumbAt=Y&thumbSe=b_tbumb&wrtTy=10006"
-             alt="History Image" class="history-image">
+             alt="History Image">
         <p class="history-text"><b>1950년대</b><br>OOL Hotel 설립 및 개장. 호텔 업계에서 급속한 성장과 혁신으로 고객들에게 편안하고 품격 있는 숙박을 제공합니다.
         </p>
     </div>
@@ -407,23 +406,7 @@ footer {
             노력합니다.</p>
         <img class="history_img-even"
              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqQ83ua3Aa0oQeKnwy91ykFKBbGdtrh3O37eL1Q84QRCl5xzt4uszlj6LLmNBcqQB_hDc&usqp=CAU"
-             alt="History Image" class="history-image">
-    </div>
-
-    <div class="history-odd">
-        <img class="history_img-odd"
-             src="https://gongu.copyright.or.kr/gongu/wrt/cmmn/wrtFileImageView.do?wrtSn=13070941&filePath=L2Rpc2sxL25ld2RhdGEvMjAxNy8yMS9DTFM2LzEzMDcwOTQxX1dSVF8yMV9DTFM2XzIwMTcxMDEwXzE1MQ==&thumbAt=Y&thumbSe=b_tbumb&wrtTy=10006"
-             alt="History Image" class="history-image">
-        <p class="history-text"><b>1950년대</b><br>OOL Hotel 설립 및 개장. 호텔 업계에서 급속한 성장과 혁신으로 고객들에게 편안하고 품격 있는 숙박을 제공합니다.
-        </p>
-    </div>
-
-    <div class="history-even">
-        <p class="history-text"><b>1960년대</b><br>새로운 변화와 서비스 향상을 위한 연구 및 노력. OOL Hotel은 고객들에게 더 나은 경험을 제공하기 위해 끊임없이
-            노력합니다.</p>
-        <img class="history_img-even"
-             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqQ83ua3Aa0oQeKnwy91ykFKBbGdtrh3O37eL1Q84QRCl5xzt4uszlj6LLmNBcqQB_hDc&usqp=CAU"
-             alt="History Image" class="history-image">
+             alt="History Image">
     </div>
     <br><br><br><br><br><br>
     <div class="locate-container">

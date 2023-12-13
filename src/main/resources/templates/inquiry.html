@@ -336,7 +336,9 @@ footer {
             .then(response=>response.json())
             .then(data=>{
                 console.log(data)
-                showSubmitMessage(); // 성공 메시지 표시
+                showSubmitMessage();
+                 // 성공 메시지 표시
+                 location.href = "/main";
             });
             }
     }
